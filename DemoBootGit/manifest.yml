@@ -1,6 +1,6 @@
 ---
 applications:
-- name: gitTest
+- name: gitDemo
   path: target/DemoBootGit-0.0.1-SNAPSHOT.war
   random-route: true
   memory: 1024M
