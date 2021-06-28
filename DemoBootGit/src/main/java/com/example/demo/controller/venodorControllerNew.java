@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.example.demo.entities.Vendor;
 
 @RepositoryRestResource(collectionResourceRel="vendor", path="newVendor")
-public interface venodorControllerNew extends JpaRepository<Vendor, Long>{
+public interface venodorControllerNew extends JpaRepository<Vendor, String>{
 
 }
