@@ -34,11 +34,11 @@ sap.ui.define(
 		onLoadData: function(){
 			//alert("todo: we will call our microservice to load vendors");
 			var that = this;
-			service.callService("/newVendor", "GET", {}).then(function(data){
+			service.callService("/vendor", "GET", {}).then(function(data){
 				var oTable = that.getView().byId("idTable");
 				var oModel = sap.ui.getCore().getModel();
-				oModel.setProperty("/newVendor",data._embedded.vendor);
-				oTable.bindRows("/newVendor");
+				oModel.setProperty("/vendor",data);
+				oTable.bindRows("/vendor");
 				oTable.setModel(oModel, "newModel");
 				//sap.ui.getCore().setModel(oModel, "newModel");
 			}).catch(function(oError){

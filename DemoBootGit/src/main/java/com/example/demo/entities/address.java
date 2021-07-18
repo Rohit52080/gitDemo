@@ -12,15 +12,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class address {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(nullable=false, name="ID")	
 //	@Id
-//	@Column(nullable=false, name="addressId")
-//	@GeneratedValue(generator="system-uuid")
-//	@GenericGenerator(name="system-uuid", strategy = "uuid")
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column(nullable=false, name="ID")	
+	@Id
 	
-	private Long addressId;
+	@GeneratedValue(generator="uuid2")
+	@GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+	@Column(nullable=false, name="addressId")
+	private String addressId;
 	@Column(name="TYPE")
 	private String addressType;
 	@Column(name="STREET")
@@ -37,7 +37,7 @@ public class address {
 		
 	}
 	
-	public address(Long addressId, String addressType, String street, String city, String country, String region) {
+	public address(String addressId, String addressType, String street, String city, String country, String region) {
 		super();
 		this.addressId = addressId;
 		this.addressType = addressType;
@@ -46,10 +46,10 @@ public class address {
 		this.country = country;
 		this.region = region;
 	}
-	public Long getAddressId() {
+	public String getAddressId() {
 		return addressId;
 	}
-	public void setAddressId(Long addressId) {
+	public void setAddressId(String addressId) {
 		this.addressId = addressId;
 	}
 	public String getAddressType() {
